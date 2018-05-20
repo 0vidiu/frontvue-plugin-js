@@ -1,0 +1,20 @@
+sudo: false
+language: node_js
+cache:
+  directories:
+    - node_modules
+notifications:
+  email: false
+node_js:
+  - '9'
+  - '8'
+install:
+  - yarn install
+script:
+  - yarn validate
+after_success:
+  - yarn report-coverage
+  - yarn travis-deploy-once "yarn semantic-release"
+branches:
+  only:
+    - master

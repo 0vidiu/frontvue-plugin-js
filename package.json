@@ -1,0 +1,137 @@
+{
+  "name": "@frontvue/plugin-js",
+  "version": "0.0.0-development",
+  "description": "FrontVue plugin for JavaScript boilerplate template and processing",
+  "main": "dist/@frontvue/plugin-js.js",
+  "types": "types/index.d.ts",
+  "author": "Ovidiu Barabula <lectii2008@gmail.com> (https://github.com/0vidiu)",
+  "license": "MIT",
+  "scripts": {
+    "commit": "git-cz",
+    "cm": "git-cz",
+    "setup": "yarn && yarn validate",
+    "dev": "cross-env NODE_ENV=development webpack --watch",
+    "test": "cross-env NODE_ENV=test nyc mocha",
+    "test:watch": "cross-env NODE_ENV=test nyc mocha --watch",
+    "lint:js": "eslint --max-warnings=0 ./",
+    "lint:ts": "tslint -t stylish -c tslint.json -p tsconfig.json",
+    "lint": "$(yarn bin)/run-p lint:*",
+    "prebuild": "rimraf ./dist",
+    "build": "cross-env NODE_ENV=production webpack",
+    "validate": "$(yarn bin)/run-p lint test build",
+    "report-coverage": "cat ./coverage/lcov.info | codecov",
+    "semantic-release": "semantic-release",
+    "travis-deploy-once": "travis-deploy-once"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/0vidiu/frontvue-plugin-js.git"
+  },
+  "files": [
+    "dist",
+    "template",
+    "types"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "bugs": {
+    "url": "https://github.com/0vidiu/frontvue-plugin-js/issues"
+  },
+  "homepage": "https://github.com/0vidiu/frontvue-plugin-js#readme",
+  "keywords": [
+    "cli",
+    "build",
+    "system",
+    "front-end",
+    "back-end",
+    "package",
+    "js",
+    "frontvue",
+    "plugin",
+    "typescript",
+    "template",
+    "boilerplate",
+    "gulp"
+  ],
+  "dependencies": {
+    "chalk": "^2.3.2",
+    "gulp": "4.0.0",
+    "gulp-plumber": "^1.2.0",
+    "rimraf": "^2.6.2",
+    "webpack-stream": "^4.0.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.40",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.46",
+    "@babel/preset-env": "^7.0.0-beta.40",
+    "@babel/register": "^7.0.0-beta.40",
+    "@types/chai": "^4.1.2",
+    "@types/gulp": "^4.0.5",
+    "@types/gulp-plumber": "^0.0.32",
+    "@types/mocha": "^5.2.0",
+    "@types/node": "^10.1.2",
+    "@types/rimraf": "^2.0.2",
+    "awesome-typescript-loader": "^5.0.0-1",
+    "babel-eslint": "^8.2.2",
+    "chai": "^4.1.2",
+    "codecov": "^3.0.0",
+    "commitizen": "^2.9.6",
+    "cross-env": "^5.1.3",
+    "cz-conventional-changelog": "^2.1.0",
+    "eslint": "^4.18.2",
+    "eslint-plugin-babel": "^5.1.0",
+    "ghooks": "^2.0.2",
+    "mocha": "^5.0.4",
+    "mock-fs": "^4.4.2",
+    "npm-run-all": "^4.1.2",
+    "nyc": "^11.4.1",
+    "semantic-release": "^15.4.0",
+    "source-map-support": "^0.5.3",
+    "travis-deploy-once": "^5.0.0",
+    "ts-node": "^5.0.1",
+    "tslint": "^5.9.1",
+    "tslint-eslint-rules": "^5.1.0",
+    "tslint-loader": "^3.6.0",
+    "typescript": "^2.7.2",
+    "validate-commit-msg": "^2.14.0",
+    "webpack": "^4.8.3",
+    "webpack-cli": "^2.0.10",
+    "webpack-strip-block": "^0.2.0"
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "npm run validate",
+      "commit-msg": "validate-commit-msg"
+    },
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "nyc": {
+    "check-coverage": true,
+    "statements": -5,
+    "branches": -5,
+    "functions": 100,
+    "lines": -2,
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "extension": [
+      ".ts",
+      ".js"
+    ],
+    "include": [
+      "src/**/*.ts",
+      "src/**/*.js"
+    ],
+    "exclude": [
+      "src/**/*.spec.ts",
+      "src/**/*.spec.js"
+    ]
+  }
+}
