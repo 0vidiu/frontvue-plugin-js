@@ -8,6 +8,8 @@
 export default {
   devDependencies: {
     '@babel/core': '^7.0.0-beta.47',
+    '@babel/plugin-proposal-object-rest-spread': '^7.0.0-beta.47',
+    '@babel/preset-env': '^7.0.0-beta.47',
     'babel-eslint': '^8.2.3',
     'babel-loader': '^8.0.0-beta.3',
     'eslint': '^4.19.1',
