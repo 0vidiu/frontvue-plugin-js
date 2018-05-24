@@ -52,7 +52,10 @@
     "typescript",
     "template",
     "boilerplate",
-    "gulp"
+    "gulp",
+    "webpack",
+    "babel",
+    "es6"
   ],
   "dependencies": {
     "chalk": "^2.3.2",
