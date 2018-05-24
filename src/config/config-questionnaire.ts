@@ -25,7 +25,7 @@ export default {
     },
     {
       default: defaults.entrypoints,
-      message: `Enter entrypoint filename(s).\n  Multiple files need to be separated by commas: 'index.js,server.js'`,
+      message: `Enter entrypoint filename(s).\n  Multiple files need to be separated by commas: 'index.js,modules.js'`,
       name: 'entrypoints',
       type: 'input',
     },
