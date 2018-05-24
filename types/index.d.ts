@@ -20,6 +20,8 @@ declare const _default: ({
     dependencies: {
         devDependencies: {
             '@babel/core': string;
+            '@babel/plugin-proposal-object-rest-spread': string;
+            '@babel/preset-env': string;
             'babel-eslint': string;
             'babel-loader': string;
             'eslint': string;
